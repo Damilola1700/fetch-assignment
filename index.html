@@ -8,8 +8,20 @@
   </head>
   <body>
     
-
+    <section class="bg-[#A95C68] mt-[50px] mb-[50px] mx-[20px] h-[300px] rounded-md">
+    <h2 class="flex justify-center font-medium text-[30px] text-[#ffffff] pt-[20px]">Flash Sales</h2>
+    <p class="flex justify-center font-medium text-[20px] text-white " id="countDown">Countdown:</p>
+    <div class="w-[80%] md:w-[60%] lg:w-[80%] m-auto ">
+      <input id="searchProduct" onkeyup="filterProducts()"
+        class="w-full h-[50px]   border-[#ffffff] text-white border-1 p-4 rounded-full mt-[50px]"
+        type="text"
+        placeholder="Search for your favourite product"
+        
+      />
+    </div>
+    </section>
     <section id="pageSection" class="grid grid-cols-3 gap-4 mt-[50px] mb-[50px] mx-[20px]"></section>
+    <p id="noProduct" class="hidden bg-[#A95C68] p-4 text-white text-center font-bold w-[30%] m-auto h-[50px] rounded-lg">Product Not Found</p>
     <p id="errorMessage"></p>
     <script src="fetch-ass.js"></script>
   </body>
