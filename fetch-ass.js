@@ -9,10 +9,34 @@ try{
   },
 };
 
-setInterval(function(){
-let today = new Date();
-    document.querySelector('#countDown').innerHTML = `Countdown:${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-}, 1000);
+// setInterval(function(){
+// let today = new Date();
+//     document.querySelector('#countDown').innerHTML = `Countdown:${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+
+
+// }, 1000);
+
+
+let targetDate = new Date("May 30 2026, 12:00:00").getTime();
+
+let countDown = setInterval(function(){
+  let now = new Date().getTime();
+  let timeDiference = targetDate - now;
+
+  let day = Math.floor((timeDiference / (1000 * 60 * 60 * 24)))
+  let hour = Math.floor((timeDiference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minute = Math.floor((timeDiference % (1000 * 60 * 60 )) / (1000 * 60));
+  let seconds = Math.floor((timeDiference % (1000 * 60 )) / (1000));
+  
+  document.querySelector('#countDown').innerHTML = `DAY ${day} Hours Left: ${hour} : ${minute} : ${seconds}`
+
+  if (timeDiference < 0){
+    clearInterval(countDown);
+    document.querySelector('#countDown').innerHTML = "Countdown Over";
+  }
+
+},1000 );
+
 
 let users = [];
 
